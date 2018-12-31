@@ -5,12 +5,12 @@ package ru.job4j.calculate;
  *
  * @author Evgeny Ivashnev (zheniog@yandex.ru)
  */
-public class Calculate{
+public class Calculate {
 		/**
 		* Main.
 		* @param args - arguments.
 		*/
-		public static void main(String[] args){
+		public static void main(String[] args) {
 			System.out.println("Hello world!");
 		}
 		
