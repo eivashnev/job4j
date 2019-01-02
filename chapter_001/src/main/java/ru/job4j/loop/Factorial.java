@@ -15,14 +15,9 @@ public class Factorial {
      */
     int calc(int n) {
         int f = 1;
-        if (n == 0) {
-            return f;
-        } else {
-            for (int i = 1; i <= n; i++) {
-                f *= i;
-            }
+        for (int i = 1; i <= n; i++) {
+            f *= i;
         }
-
         return f;
     }
 }
