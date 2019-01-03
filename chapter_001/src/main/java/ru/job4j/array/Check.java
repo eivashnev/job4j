@@ -14,11 +14,9 @@ public class Check {
      * @return false - if elements are not same
      */
     public boolean mono(boolean[] data) {
-        boolean result = false;
+        boolean result = true;
         for (int i = 0; i < data.length - 1; i++) {
-            if(data[i] == data[i+1]) {
-                result = true;
-            } else {
+            if (data[i] != data[i + 1]) {
                 return false;
             }
         }

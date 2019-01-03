@@ -15,7 +15,7 @@ public class Turn {
     public int[] back(int[] array) {
         int tmp;
         int l = array.length;
-        for (int i = 0; i < l/2; i++) {
+        for (int i = 0; i < l / 2; i++) {
             tmp = array[i];
             array[i] = array[l - 1 - i];
             array[l - 1 - i] = tmp;
