@@ -71,24 +71,20 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-        int[][] scores = new int[2][table.length];
+        int h = 0;
+        int v = 0;
 
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table.length; j++) {
-                scores[0][i] += table[i][j]; //считаем кол-во единиц для i-ой строки
-                scores[1][j] += table[i][j]; //считаем кол-во единиц для j-го столбца
+                h += table[i][j];
+                v += table[j][i];
             }
-        }
-
-        //Если кол-во единиц в одном из столбцов или строке
-        // равняется размеру игровой области возвращаем true
-        for (int i = 0; i < scores.length && result != true; i++) {
-            for (int j = 0; j < scores[i].length; j++) {
-                if (scores[i][j] == table.length) {
-                    result = true;
-                    break;
-                }
+            if (h == table.length || v == table.length) {
+                result = true;
+                break;
             }
+            h = 0;
+            v = 0;
         }
         return result;
     }
