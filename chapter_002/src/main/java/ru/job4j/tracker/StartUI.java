@@ -50,6 +50,8 @@ public class StartUI {
                 case FIND_BY_NAME:
                     this.findItemsByName();
                     break;
+                default:
+                    break;
             }
         }
         System.out.println("Good bye!");
@@ -63,7 +65,7 @@ public class StartUI {
      * Shows main menu
      */
     private void showMenu() {
-        System.out.println("Tracker Menu: ");
+        System.out.println("\nTracker Menu: ");
         System.out.println("1. Add new Item");
         System.out.println("2. Show all items");
         System.out.println("3. Edit item");
@@ -90,7 +92,7 @@ public class StartUI {
     private void showAllItems() {
         System.out.println("All items: ");
         System.out.println("========================================================================================");
-        for(Item item : tracker.findAll()) {
+        for (Item item : tracker.findAll()) {
             System.out.println(item.toString());
         }
         System.out.println("\n");
@@ -99,10 +101,10 @@ public class StartUI {
     /**
      * Method to edit item.
      */
-    private void editItem () {
+    private void editItem() {
         String itemId = input.ask("Enter item ID to change: ");
         Item oldItem = tracker.findById(itemId);
-        if(oldItem != null) {
+        if (oldItem != null) {
             String itemName = input.ask("Enter new item name: ");
             String itemDesc = input.ask("Enter new item description: ");
             Item newItem = new Item(itemName, itemDesc, System.currentTimeMillis());
@@ -121,7 +123,7 @@ public class StartUI {
     private void deleteItem() {
         String itemId = input.ask("Enter item ID to delete: ");
         Item item = tracker.findById(itemId);
-        if(item != null) {
+        if (item != null) {
             tracker.delete(itemId);
             System.out.println("Item deleted: " + item.toString());
         } else {
@@ -145,7 +147,7 @@ public class StartUI {
         String itemName = input.ask("Enter item name to find: ");
         System.out.println(String.format("Items found by name [<%s>]: ", itemName));
         System.out.println("========================================================================================");
-        for(Item item : tracker.findByName(itemName)) {
+        for (Item item : tracker.findByName(itemName)) {
             System.out.println(item.toString());
         }
         System.out.println("\n");
