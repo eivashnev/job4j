@@ -2,12 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class TrackerTest {
     @Test
