@@ -91,7 +91,7 @@ public class StartUI {
      */
     private void showAllItems() {
         System.out.println("All items: ");
-        System.out.println("========================================================================================");
+        System.out.println("===========================================================================");
         for (Item item : tracker.findAll()) {
             System.out.println(item.toString());
         }
@@ -103,15 +103,13 @@ public class StartUI {
      */
     private void editItem() {
         String itemId = input.ask("Enter item ID to change: ");
-        Item oldItem = tracker.findById(itemId);
-        if (oldItem != null) {
-            String itemName = input.ask("Enter new item name: ");
-            String itemDesc = input.ask("Enter new item description: ");
-            Item newItem = new Item(itemName, itemDesc, System.currentTimeMillis());
+        String itemName = input.ask("Enter new item name: ");
+        String itemDesc = input.ask("Enter new item description: ");
+        Item newItem = new Item(itemName, itemDesc, System.currentTimeMillis());
+
+        if (tracker.replace(itemId, newItem)) {
             newItem.setId(itemId);
-            tracker.replace(itemId, newItem);
-            System.out.println("Item edited: " + oldItem.toString());
-            System.out.println("-> " + newItem.toString());
+            System.out.println("Item edited! ID: " + itemId);
         } else {
             System.out.println("Item not found! Please check entered ID: " + itemId);
         }
@@ -122,10 +120,8 @@ public class StartUI {
      */
     private void deleteItem() {
         String itemId = input.ask("Enter item ID to delete: ");
-        Item item = tracker.findById(itemId);
-        if (item != null) {
-            tracker.delete(itemId);
-            System.out.println("Item deleted: " + item.toString());
+        if (tracker.delete(itemId)) {
+            System.out.println("Item deleted! ID: " + itemId);
         } else {
             System.out.println("Item not found! Please check entered ID: " + itemId);
         }
@@ -137,7 +133,12 @@ public class StartUI {
     private void findItemById() {
         String itemId = input.ask("Enter item ID to find: ");
         Item foundItem = tracker.findById(itemId);
-        System.out.println(String.format("Item found: %s \n", itemId, foundItem));
+        if (foundItem != null) {
+            System.out.println("Item found: " + foundItem);
+        } else {
+            System.out.println("Item not found!");
+        }
+
     }
 
     /**
