@@ -62,16 +62,16 @@ public class MenuTracker {
         for (UserAction action : actions) {
             if (action.key() == key) {
                 action.execute(this.input, this.tracker);
+                break;
             }
         }
-
     }
 
     /**
      * Метод выводит на экран меню.
      */
     public void show() {
-        System.out.println("\n");
+        System.out.println();
         System.out.println("=================== Tracker Menu ===================");
         for (UserAction action : this.actions) {
             if (action != null) {
