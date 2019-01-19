@@ -84,7 +84,7 @@ public class StartUI {
     private void addItem() {
         String taskName = input.ask("Enter item name: ");
         String taskDesc = input.ask("Enter item description: ");
-        Item item = new Item(taskName, taskDesc, System.currentTimeMillis());
+        Item item = new Item(taskName, taskDesc);
         tracker.add(item);
         System.out.println("Added item: " + item.toString() + "\n");
     }
@@ -108,7 +108,7 @@ public class StartUI {
         String itemId = input.ask("Enter item ID to change: ");
         String itemName = input.ask("Enter new item name: ");
         String itemDesc = input.ask("Enter new item description: ");
-        Item newItem = new Item(itemName, itemDesc, System.currentTimeMillis());
+        Item newItem = new Item(itemName, itemDesc);
 
         if (tracker.replace(itemId, newItem)) {
             newItem.setId(itemId);

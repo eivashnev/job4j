@@ -31,7 +31,7 @@ public class StartUITest {
 
     @Test
     public void whenShowAllItems() {
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
+        Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"2", "0"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), containsString(
@@ -44,7 +44,7 @@ public class StartUITest {
 
     @Test
     public void whenItemFoundByName() {
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
+        Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"6", "test name", "0"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), containsString(
@@ -57,7 +57,7 @@ public class StartUITest {
 
     @Test
     public void whenItemFoundById() {
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
+        Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"5", item.getId(), "0"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()),
@@ -81,7 +81,7 @@ public class StartUITest {
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
+        Item item = tracker.add(new Item("test name", "desc"));
         //создаём StubInput с последовательностью действий(производим замену заявки)
         Input input = new StubInput(new String[]{"3", item.getId(), "test replace", "заменили заявку", "0"});
         new StartUI(input, tracker).init();
@@ -91,7 +91,7 @@ public class StartUITest {
 
     @Test
     public void whenDeleteThenTrackerDeletesItem() {
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
+        Item item = tracker.add(new Item("test name", "desc"));
         //создаём StubInput с последовательностью действий(производим удаление заявки)
         Input input = new StubInput(new String[]{"4", item.getId(), "0"});
         // создаём StartUI и вызываем метод init()
