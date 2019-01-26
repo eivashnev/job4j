@@ -75,7 +75,7 @@ public class MenuTracker {
         System.out.println("=================== Tracker Menu ===================");
         for (UserAction action : this.actions) {
             if (action != null) {
-                System.out.println(action.key() + ". " + action.info());
+                System.out.println(action.info());
             }
         }
     }

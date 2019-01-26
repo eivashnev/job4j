@@ -4,18 +4,10 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.input.Input;
 
-public class ShowItems implements UserAction {
-    private int key;
-    private String info;
+public class ShowItems extends BaseAction {
 
     public ShowItems(int key, String info) {
-        this.key = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return this.key;
+        super(key, info);
     }
 
     @Override
@@ -24,10 +16,5 @@ public class ShowItems implements UserAction {
         for (Item item : tracker.findAll()) {
             System.out.println(item.toString());
         }
-    }
-
-    @Override
-    public String info() {
-        return this.info;
     }
 }
