@@ -1,5 +1,7 @@
 package ru.job4j.tracker.input;
 
+import ru.job4j.tracker.exceptions.MenuOutException;
+
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.
@@ -37,6 +39,17 @@ public class StubInput implements Input {
 
     @Override
     public int ask(String question, int[] range) {
-        return Integer.valueOf(this.value[this.position++]);
+        int answer = Integer.valueOf(this.value[this.position++]);
+        int result = -1;
+        for (int opt : range) {
+            if (answer == opt) {
+                result = answer;
+                break;
+            }
+        }
+        if (result == -1) {
+            throw new MenuOutException("Invalid option.");
+        }
+        return result;
     }
 }

@@ -30,8 +30,7 @@ public class ConsoleInput implements Input {
         }
         if (result == -1) {
             throw new MenuOutException("Invalid option.");
-        } else {
-            return result;
         }
+        return result;
     }
 }
