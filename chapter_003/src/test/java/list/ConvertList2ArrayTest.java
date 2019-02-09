@@ -37,11 +37,5 @@ public class ConvertList2ArrayTest {
         List<Integer> result = coverter.convert(list);
         List<Integer> expect = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
         assertThat(result, is(expect));
-
-
-
-
-
-
     }
 }
