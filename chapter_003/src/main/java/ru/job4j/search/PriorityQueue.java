@@ -4,6 +4,10 @@ import java.util.LinkedList;
 
 public class PriorityQueue {
 
+    public LinkedList<Task> getTasks() {
+        return tasks;
+    }
+
     private LinkedList<Task> tasks = new LinkedList<>();
 
     /**
@@ -14,10 +18,12 @@ public class PriorityQueue {
      */
     public void put(Task newTask) {
         int index = 0;
+        int c = 0;
         int priority = newTask.getPriority();
         for (Task task : tasks) {
+            c++;
             if (priority >= task.getPriority()) {
-                index = tasks.indexOf(task) + 1;
+                index = c;
             }
         }
         this.tasks.add(index, newTask);
