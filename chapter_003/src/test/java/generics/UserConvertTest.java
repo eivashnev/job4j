@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 
 public class UserConvertTest {
     @Test
-    public void testConvertUserListToMap(){
+    public void testConvertUserListToMap() {
         UserConvert converter = new UserConvert();
         User user1 = new User(0, "Evgeny", "NNovgorod");
         User user2 = new User(1, "Alex", "Moskva");

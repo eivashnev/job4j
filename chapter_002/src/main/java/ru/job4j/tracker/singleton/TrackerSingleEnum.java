@@ -6,7 +6,7 @@ import ru.job4j.tracker.Tracker;
 public enum TrackerSingleEnum {
     INSTANCE;
 
-    private static final Tracker tracker = new Tracker();
+    private static final Tracker TRACKER = new Tracker();
 
     /**
      * Добавление заявок
@@ -14,7 +14,7 @@ public enum TrackerSingleEnum {
      * @return item
      */
     public Item add(Item item) {
-        return tracker.add(item);
+        return TRACKER.add(item);
     }
 
     /**
@@ -24,7 +24,7 @@ public enum TrackerSingleEnum {
      * @return true or false
      */
     public boolean replace(String id, Item item) {
-        return tracker.replace(id, item);
+        return TRACKER.replace(id, item);
     }
 
     /**
@@ -33,7 +33,7 @@ public enum TrackerSingleEnum {
      * @return true or false
      */
     public boolean delete(String id) {
-        return tracker.delete(id);
+        return TRACKER.delete(id);
     }
 
     /**
@@ -41,7 +41,7 @@ public enum TrackerSingleEnum {
      * @return all items
      */
     public Item[] findAll() {
-        return tracker.findAll();
+        return TRACKER.findAll();
     }
 
     /**
@@ -50,7 +50,7 @@ public enum TrackerSingleEnum {
      * @return items by name
      */
     public Item[] findByName(String key) {
-        return tracker.findByName(key);
+        return TRACKER.findByName(key);
     }
 
     /**
@@ -59,6 +59,6 @@ public enum TrackerSingleEnum {
      * @return items by id
      */
     public Item findById(String id) {
-        return tracker.findById(id);
+        return TRACKER.findById(id);
     }
 }

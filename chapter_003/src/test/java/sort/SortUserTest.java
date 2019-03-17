@@ -17,13 +17,13 @@ public class SortUserTest {
                 new User("Anatoly", 65),
                 new User("Ivan", 21),
                 new User("Evgeny", 30),
-                new User("Olga",25)
+                new User("Olga", 25)
         ));
         Set<User> result = sortUser.sort(userList);
         Set<User> expect = new TreeSet<>(
                 Arrays.asList(
                         new User("Ivan", 21),
-                        new User("Olga",25),
+                        new User("Olga", 25),
                         new User("Evgeny", 30),
                         new User("Anatoly", 65)
                 )
