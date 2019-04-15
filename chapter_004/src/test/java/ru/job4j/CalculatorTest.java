@@ -24,7 +24,7 @@ public class CalculatorTest {
     public void whenAdd1Until3Methods() {
         Calculator calc = new Calculator();
         List<Double> buffer = new ArrayList<>();
-        calc.calc(
+        calc.multiple(
                 0, 3, 1,
                 MathUtil::add, //static call
                 buffer::add // non-static call
