@@ -29,5 +29,11 @@ public class Calculator {
                 },
                 result -> System.out.println(result)
         );
+
+        calc.multiple(
+                0, 10, 2,
+                MathUtil::add,
+                result -> System.out.println(result)
+        );
     }
 }
