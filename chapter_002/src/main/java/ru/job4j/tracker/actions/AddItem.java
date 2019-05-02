@@ -17,6 +17,6 @@ public class AddItem extends BaseAction {
         String taskDesc = input.ask("Enter item description: ");
         Item item = new Item(taskName, taskDesc);
         tracker.add(item);
-        System.out.println("%nAdded item: " + item.toString());
+        System.out.println("\nAdded item: " + item.toString());
     }
 }
