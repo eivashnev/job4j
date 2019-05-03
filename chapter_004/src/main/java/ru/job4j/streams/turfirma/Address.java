@@ -1,5 +1,7 @@
 package ru.job4j.streams.turfirma;
 
+import java.util.Objects;
+
 public class Address {
     private String city;
     private String street;
@@ -27,6 +29,26 @@ public class Address {
 
     public int getApartment() {
         return apartment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Address address = (Address) o;
+        return getHome() == address.getHome()
+                && getApartment() == address.getApartment()
+                && Objects.equals(getCity(), address.getCity())
+                && Objects.equals(getStreet(), address.getStreet());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCity(), getStreet(), getHome(), getApartment());
     }
 
     @Override
