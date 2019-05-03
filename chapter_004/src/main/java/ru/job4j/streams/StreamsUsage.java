@@ -16,10 +16,7 @@ public class StreamsUsage {
 
         @Override
         public String toString() {
-            return "Task{" +
-                    "name='" + name + '\'' +
-                    ", spent=" + spent +
-                    '}';
+            return "Task{name='" + name + '\'' + ", spent=" + spent + '}';
         }
     }
 
