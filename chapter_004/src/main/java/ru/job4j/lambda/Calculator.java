@@ -1,4 +1,4 @@
-package ru.job4j;
+package ru.job4j.lambda;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
