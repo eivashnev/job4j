@@ -26,7 +26,15 @@ public class StreamUsageTest {
         assertThat(result.get("Petrova"), is(s2));
         assertThat(result.get("Griboedov"), is(s3));
         assertThat(result.size(), is(students.size()));
+    }
 
+    @Test
+    public void testGetNumbersListFromMatrix() {
+        Integer[][] numbers = {{1, 2, 3}, {5, 6}};
+        List<Integer> expected = Arrays.asList(1, 2, 3, 5, 6);
+        List<Integer> result = new StreamsUsage().getNumbersListFromMatrix(numbers);
+
+        assertThat(result, is(expected));
     }
 
 }

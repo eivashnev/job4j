@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamsUsage {
     public static class Task {
@@ -30,6 +31,12 @@ public class StreamsUsage {
                 e -> e
         ));
         return studentMap;
+    }
+
+    public List<Integer> getNumbersListFromMatrix(Integer[][] matrix) {
+        List<Integer> integers;
+        integers = Stream.of(matrix).flatMap(e -> Stream.of(e)).collect(Collectors.toList());
+        return integers;
     }
 
     public static void main(String[] args) {
