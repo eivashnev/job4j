@@ -1,7 +1,10 @@
 package ru.job4j.streams;
 
+import ru.job4j.streams.school.Student;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamsUsage {
@@ -18,6 +21,15 @@ public class StreamsUsage {
         public String toString() {
             return "Task{name='" + name + '\'' + ", spent=" + spent + '}';
         }
+    }
+
+    public Map<String, Student> getStudentsMapFromList(List<Student> students) {
+        Map<String, Student> studentMap;
+        studentMap = students.stream().distinct().collect(Collectors.toMap(
+                e -> e.getSurname(),
+                e -> e
+        ));
+        return studentMap;
     }
 
     public static void main(String[] args) {
